@@ -6,6 +6,5 @@ import docs from '../data/docs.js';
 
 test('search', () => {
   const result = search(docs, 'shoot');
-  console.log('search -> ', result);
   expect(result).toStrictEqual(['doc1', 'doc2']);
 });

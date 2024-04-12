@@ -1,13 +1,11 @@
-// @ts-check
-
-import quickSort from './utils/quickSort.js';
 import findWords from './utils/findWords.js';
+import quickSort from './utils/quickSort.js';
 
-function searchRelevant(arr, text) {
+function searchNonExplicit(arr, words) {
   const result = [];
 
   for (let i = 0; i < arr.length; i += 1) {
-    const doc = findWords(arr[i].text, text, true);
+    const doc = findWords(arr[i].text, words, false);
 
     if (doc && doc.length > 0) {
       result.push({ id: arr[i].id, count: doc.length });
@@ -19,4 +17,4 @@ function searchRelevant(arr, text) {
   return sortedResults.map((doc) => doc.id);
 }
 
-export default searchRelevant;
+export default searchNonExplicit;
